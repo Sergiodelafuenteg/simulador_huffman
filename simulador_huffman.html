@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Huffman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="materialize/css/materialize.css" />
+    
+</head>
+<body>
+    <div id = 'app' style="text-align:center">
+        <h1 style="font-weight:bold">HUFFMAN</h1>
+        <div v-if="panel_start">            
+            <input placeholder="Introduce el texto a codificar" v-model="codifinput">
+            <button class="waves-effect waves-light btn-large" @click='Builder()'>Codifica</button>
+        </div>
+        
+       <div v-if="panel_codi">
+           <h4>{{ codifinput }}</h4>
+            <h4 class="card-panel teal lighten-2">Entropía = {{Entropia()}}</h4>
+            <ul class="collection">
+                <li style="text-align:justify" class="collection-item" v-for="item in dict">
+                    caracter: {{ item.key }} - codificacion: {{ item.bits }}
+                </li>
+            </ul>
+            <div class="card-panel">
+                <h4>{{CadenaBits().print(' ')}}</h4>
+            </div>
+            <h2>
+                <button onclick=
+                "window.location.href = window.location.href" class="waves-effect waves-light btn-large"
+                >Restart</button>
+            </h2>
+            
+       </div>
+
+        <!-- Scripts -->
+        <script src="vue.js"></script>
+        <script src="materialize/js/materialize.js"></script>
+        <script src="app.js"></script>
+    </div>    
+</body>
+<!-- Developed by Sergio de la Fuente -->
+</html>
